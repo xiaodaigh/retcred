@@ -5,7 +5,7 @@
 \title{Risk-weighted Asset (RWA) and the required capital, k, calculation for retail portfolios under the
 BasellII framework}
 \usage{
-k.capital(pd, lgd, asset.class = c("Mortgage", "QRRE", "Retail Other"),
+k.capital(pd, lgd, asset.class = c("Mortgage", "QRRE", "Other Retail"),
   r = NULL)
 
 rwa(..., ead = 1, reg.mult = 1)

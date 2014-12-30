@@ -8,3 +8,5 @@ Maintainer: ZJ <dzj@analytixware.com>
 Description: Various retail credit risk and Basel Accord (e.g. BaselIII)
     related functions
 License: MIT
+Suggests:
+    testthat

@@ -8,23 +8,18 @@
 #' @param reg.mult Regulator specified multiplier to the RWA
 #' @export
 #' 
-k.capital <- function(pd, lgd, asset.class = c("Mortgage", "QRRE", "Retail Other"), r = NULL) {
-  #browser()
-  # the correlation
+k.capital <- function(pd, lgd, asset.class = c("Mortgage", "QRRE", "Other Retail"), r = NULL) {
+  
   asset.class <- match.arg(asset.class)
-  if(is.null(r)) {
-    if (asset.class == "Mortgage") {
-      r <- 0.15
-    } else if (asset.class == "QRRE")    {
-      r <- 0.04
-    } else if (asset.class == "Retail Other")    {
-      r <- 0.03*(1-exp(-35*pd))/(1-exp(-35))+0.16*(1-(1-exp(-35*pd)))/(1-exp(-35))
-    }
+
+  if(is.null(r)) {    
+    r <- 0.15    
+    r <- 0.04    
+    r <- 0.03*(1-exp(-35*pd))/(1-exp(-35))+0.16*(1-(1-exp(-35*pd)))/(1-exp(-35))    
   }
   
-  lgd*(pnorm(sqrt(1/(1-r))*qnorm(0.999) + sqrt(r/(1-r))*qnorm(pd)) - pd)
+  ifelse(lgd >=0 & lgd <= 1, lgd*(pnorm(sqrt(1/(1-r))*qnorm(0.999) + sqrt(r/(1-r))*qnorm(pd)) - pd), {warning("LGD should be between 0 and 1");NA})
 }
-
 
 
 #' @rdname k.capital
