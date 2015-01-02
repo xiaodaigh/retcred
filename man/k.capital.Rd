@@ -3,8 +3,8 @@
 \name{k.capital}
 \alias{k.capital}
 \alias{rwa}
-\title{Risk-weighted Asset (RWA) and the required capital, k, calculation for retail portfolios under the
-BasellII framework}
+\title{Risk-weighted Asset (RWA) and the required capital, k, calculation for retail
+portfolios under the Basel II framework}
 \usage{
 k.capital(pd, lgd, asset.class = c("Mortgage", "QRRE", "Other Retail"),
   r = NULL)
@@ -20,14 +20,16 @@ rwa(..., ead = 1, reg.mult = 1)
 
 \item{r}{The assest correlation. Usually not required as it is specifeid under BaselII bassed on asset class}
 
+\item{...}{arguments that feed into the k.capital function}
+
 \item{ead}{The exposure at default in dollar amount. If not specified the
 function returns the RWA\%}
 
 \item{reg.mult}{Regulator specified multiplier to the RWA}
 }
 \description{
-Risk-weighted Asset (RWA) and the required capital, k, calculation for retail portfolios under the
-BasellII framework
+Risk-weighted Asset (RWA) and the required capital, k, calculation for retail
+portfolios under the Basel II framework
 }
 \examples{
 rwa(pd = 0.01, lgd = 0.2)
