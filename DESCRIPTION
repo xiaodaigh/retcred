@@ -3,10 +3,11 @@ Type: Package
 Title: Retail Credit Risk
 Version: 0.1.0
 Date: 2014-11-11
-Author: AnalytixWare Ltd Pty
-Maintainer: ZJ <dzj@analytixware.com>
+Author: Zhuo Jia Dai
+Maintainer: Zhuo Jia Dai <dzj@analytixware.com>
 Description: Various retail credit risk and Basel Accord (e.g. Basel III)
     related functions
 License: MIT + file LICENSE
+Copyright (c) 2015, AnalytixWare Ltd Pty
 Suggests:
     testthat
