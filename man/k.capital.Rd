@@ -33,9 +33,5 @@ portfolios under the Basel II framework
 }
 \examples{
 rwa(pd = 0.01, lgd = 0.2)
-
-# sometimes the regulator may impose a different correlation to the Basel II
-# standard. YOu can use r to get the correaltion
-rwa(pd = 0.01, lgd = 0.2, r = 0.21)
 }
 

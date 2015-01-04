@@ -11,10 +11,14 @@ k.capital <- function(pd, lgd, asset.class = c("Mortgage", "QRRE", "Other Retail
   
   asset.class <- match.arg(asset.class)
 
-  if(is.null(r)) {    
-    r <- 0.15    
-    r <- 0.04    
-    r <- 0.03*(1-exp(-35*pd))/(1-exp(-35))+0.16*(1-(1-exp(-35*pd)))/(1-exp(-35))    
+  if(is.null(r)) {
+    if(asset.class == "Mortgage") {
+      r <- 0.15
+    } else if (asset.class == "QRRE") {
+      r <- 0.04      
+    } else {
+      r <- 0.03*(1-exp(-35*pd))/(1-exp(-35))+0.16*(1-(1-exp(-35*pd)))/(1-exp(-35))     
+    }
   }
   
   ifelse(lgd >=0 & lgd <= 1, lgd*(pnorm(sqrt(1/(1-r))*qnorm(0.999) + sqrt(r/(1-r))*qnorm(pd)) - pd), {warning("LGD should be between 0 and 1");NA})
@@ -29,9 +33,6 @@ k.capital <- function(pd, lgd, asset.class = c("Mortgage", "QRRE", "Other Retail
 #' @examples
 #' rwa(pd = 0.01, lgd = 0.2) 
 #' 
-#' # sometimes the regulator may impose a different correlation to the Basel II
-#' # standard. YOu can use r to get the correaltion
-#' rwa(pd = 0.01, lgd = 0.2, r = 0.21) 
 #' @export
 rwa <- function(..., ead = 1, reg.mult = 1) {
   k <- k.capital(...)
