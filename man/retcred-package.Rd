@@ -26,13 +26,10 @@ AnalytixWare Ltd Pty
 Maintainer: ZJ <dzj@analytixware.com>
 
 }
-\references{
 
 }
 \keyword{ retail credit risk }
-\seealso{
 
-}
 \examples{
 # this will compute the rwa for the asset calss Qualifying retail revolving exposures
 rwa(pd = 0.04, lgd = 0.2, asset.class = "QRRE")
