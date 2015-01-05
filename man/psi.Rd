@@ -19,4 +19,10 @@ length as base.segments}
 \description{
 Population Stability Index (PSI)
 }
+\examples{
+x <- runif(10)
+base.seg <- x/sum(x)
+# this should return a PSI of zero since the segments' distributions did not change
+psi(base.seg, base.seg)
+}
 

@@ -7,17 +7,21 @@
 gini(score, target, bad = NULL, return.data = T, return.data.table = F)
 }
 \arguments{
-\item{score}{A vector of numbers that is used to predict the target}
+\item{score}{A vector of numbers that is used to predict the target.}
 
-\item{target}{A binary vector of targets. The first (alphanumerically) sorted level is used as the good.}
+\item{target}{A binary vector of targets. The first (alphanumerically) sorted level is used as the bad indicator.}
 
-\item{bad}{The bad target. It must be one of the two values in target}
+\item{bad}{The bad target. It must be one of the two values in target.}
 
-\item{return.data}{Return the data and the computation}
+\item{return.data}{Return the data and the intermediate computation results.}
 
-\item{return.data.table}{Return the data as data.table. By default this is false because data.frame is more common.}
+\item{return.data.table}{Return the data as data.table. By default this is FALSE because data.frame is more common.}
 }
 \description{
 GINI coefficient for binary targets
+}
+\examples{
+# this should return a gini close to 0 since the scores are assigned randomly
+gini(rnorm(100), rnorm(100) < 0)
 }
 

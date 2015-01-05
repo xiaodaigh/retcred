@@ -8,7 +8,13 @@
 #'   in the open interval (0,1) that sums to exactly 1 and also be of the same
 #'   length as base.segments
 #' @export
+#' @examples
+#' x <- runif(10) 
+#' base.seg <- x/sum(x)
+#' # this should return a PSI of zero since the segments' distributions did not change
+#' psi(base.seg, base.seg) 
 #' 
+
 psi <- function(base.segments, comparison.segments) {
   stopifnot(sum(base.segments) == 1)
   stopifnot(all(base.segments > 0))
