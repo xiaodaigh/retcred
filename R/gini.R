@@ -27,10 +27,9 @@ gini <- function(score, target, bad = NULL, return.data = T, return.data.table =
   # use data.table to compute the score and target table
   dt <- data.table(score,target, key = "score")
   
-  # computate the cumulative bads# and cumulative totals# 
+  # computate the cumulative bads# and cumulative totals#   
   dt <- dt %>% 
-    group_by(score) %>% 
-    mutate(bad = rep(bad,nrow(dt))) %>%
+    group_by(score) %>%     
     summarise(sum.bad = sum(target == bad), sum.all = n()) %>% 
     mutate(cum.sum.bad = cumsum(sum.bad), cum.sum = cumsum(sum.all))
     
