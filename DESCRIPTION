@@ -8,6 +8,7 @@ Maintainer: Zhuo Jia Dai <dzj@analytixware.com>
 Description: A small collection of retail credit risk and Basel Accord (e.g. Basel III)
     related functions.
 License: MIT + file LICENSE
-Imports: dplyr, data.table, magrittr
+Depends: data.table
+Imports: magrittr,dplyr
 Suggests:
     testthat
